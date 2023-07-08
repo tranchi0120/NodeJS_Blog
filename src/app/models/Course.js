@@ -1,19 +1,26 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const slug = require('mongoose-slug-generator');
+const uniqueValidator = require('mongoose-unique-validator');
 
-const slug = require('mongoose-slug-generator')
-mongoose.plugin(slug);;
+mongoose.plugin(slug);
 
 const CourseSchema = new Schema({
-    name: { type: String },
-    description: { type: String },
-    image: { type: String },
-    videoId: { type: String },
-    slug: { type: String, slug: "name", unique: true }
-
+    name: String,
+    description: String,
+    image: String,
+    videoId: String,
+    slug: { type: String, slug: "name", unique: true },
 }, {
     timestamps: true
-})
+});
 
-const Course = mongoose.model('Course', CourseSchema);
+// CourseSchema.pre("save", function (next) {
+//     this.slug = this.name.split(" ").join("-");
+//     next();
+// });
+
+CourseSchema.plugin(uniqueValidator);
+
+let Course = mongoose.model('Course', CourseSchema);
 module.exports = Course;
