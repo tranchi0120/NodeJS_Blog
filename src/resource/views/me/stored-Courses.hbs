@@ -5,19 +5,23 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">name</th>
+                    <th scope="col">Name</th>
                     <th scope="col">Description</th>
-                    <th scope="col">time-Create</th>
+                    <th scope="col">Time-Create</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
                 {{#each course}}
                 <tr>
-                    <th scope="row">{{@index plus 1}}</th>
+                    <th scope="row">{{sum @index 1}}</th>
                     <td>{{this.name}}</td>
                     <td>{{this.description}}</td>
                     <td>{{this.createdAt}}</td>
-
+                    <td>
+                        <a href="/courses/{{this._id}}/edit" type="button" class="btn btn-success">update</a>
+                        <a href="" type="button" class="btn btn-danger">delete</a>
+                    </td>
                 </tr>
                 {{/each}}
             </tbody>
