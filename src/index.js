@@ -1,12 +1,19 @@
-const express = require('express')
-const morgan = require('morgan')
-const path = require('path')
-const methodOverride = require('method-override')
-const exphbs = require('express-handlebars')
+// const express = require('express')
+// const morgan = require('morgan')
+// const path = require('path')
+// const methodOverride = require('method-override')
+// const exphbs = require('express-handlebars')
 
-const route = require('./routes/index')
-const db = require('./config/db')
+// const route = require('./routes/index')
+// const db = require('./config/db')
 
+import express from 'express'
+import exphbs from 'express-handlebars'
+import morgan from 'morgan'
+import path from 'path'
+import methodOverride from 'method-override'
+import db from './config/db'
+import route from './routes'
 const app = express()
 // connect DB
 db.connect()
