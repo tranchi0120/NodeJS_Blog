@@ -1,4 +1,4 @@
-@import "variables";
+@import 'variables';
 
 .container {
   margin: 0 auto;
@@ -32,6 +32,6 @@ a {
   text-decoration: none;
 }
 .title {
-  color: blue;
+  color: $color-red;
   font-size: 22px;
 }
